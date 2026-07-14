@@ -11,13 +11,13 @@ how:
   title: "How It Works"
   items:
     - title: "Play First"
-      image: "/samples/sample1.png"
+      image: "samples/sample1.png"
       text: "Start from small pre-designed games. The app introduces the controls and gives players a concrete system to inspect before making changes."
     - title: "Open the Design Pack"
-      image: "/samples/sample2.png"
+      image: "samples/sample2.png"
       text: "Game rules are exposed as readable visual parameters. Players can adjust values, toggle mechanics, and compare variations without leaving the app."
     - title: "Reflect and Share"
-      image: "/samples/sample3.png"
+      image: "samples/sample3.png"
       text: "The study asks participants to describe what they changed, why they changed it, and how the resulting game felt during play-testing."
 
 credits:

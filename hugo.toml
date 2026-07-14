@@ -1,4 +1,4 @@
-baseURL = "https://paravida.example/"
+baseURL = "https://parametric.interactions.se/paravida/"
 languageCode = "en-us"
 title = "Paravida"
 disableKinds = ["taxonomy", "term", "RSS"]

@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="hero__phone" aria-hidden="true">
-      <img src="/samples/sample2.png" alt="">
+      <img src="{{ relURL "samples/sample2.png" }}" alt="">
     </div>
   </section>
 
@@ -52,7 +52,7 @@
     <div class="steps">
       {{ range $index, $item := $home.how.items }}
         <article class="step{{ if modBool $index 2 }} step--reverse{{ end }}">
-          <div class="step__image"><img src="{{ $item.image }}" alt="{{ $item.title }} screenshot"></div>
+          <div class="step__image"><img src="{{ relURL $item.image }}" alt="{{ $item.title }} screenshot"></div>
           <div class="step__text">
             <span>{{ printf "%02d" (add $index 1) }}</span>
             <h3>{{ $item.title }}</h3>

@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <section class="section-panel page-hero research">
+    <p class="eyebrow">Research</p>
+    <h1>{{ .Title }}</h1>
+    <p class="lead">{{ .Params.intro }}</p>
+  </section>
+  <section class="section-panel split">
+    <div>
+      <h2>{{ .Params.taskTitle }}</h2>
+      <div class="markdown-content">{{ .Content }}</div>
+      <a class="button" href="{{ relURL "contact/" }}">{{ .Params.button }}</a>
+    </div>
+    <div class="task-card">
+      <h3>Questions?</h3>
+      <p>Contact the Paravida team if you want to ask about eligibility, consent, timing, or the device requirements before registering interest.</p>
+    </div>
+  </section>
+{{ end }}

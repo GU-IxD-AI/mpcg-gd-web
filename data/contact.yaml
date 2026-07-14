@@ -1,0 +1,9 @@
+emailLabel: "Email"
+email: "paravida@example.com"
+sections:
+  - title: "Media"
+    text: "Request app information, images, credits, or interviews about the project."
+  - title: "Research"
+    text: "Ask about participation, eligibility, study procedures, and consent information."
+  - title: "Privacy"
+    text: "Send questions about study data, app data, or removal requests."

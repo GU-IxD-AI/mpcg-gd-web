@@ -1,0 +1,16 @@
+{{ define "main" }}
+  {{ $home := site.Data.home }}
+  <section class="section-panel page-hero">
+    <p class="eyebrow">Acknowledgements</p>
+    <h1>{{ .Title }}</h1>
+    <div class="markdown-content lead-content">{{ .Content }}</div>
+  </section>
+  <section class="contact-grid credits-grid">
+    {{ range $home.credits.items }}
+      <article class="section-panel contact-card">
+        <h2>{{ .title }}</h2>
+        <p>{{ .text }}</p>
+      </article>
+    {{ end }}
+  </section>
+{{ end }}

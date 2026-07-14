@@ -1,0 +1,102 @@
+{{ define "main" }}
+  {{ $home := site.Data.home }}
+  {{ $researchPage := site.GetPage "research" }}
+  {{ $privacyPage := site.GetPage "privacy" }}
+  {{ $creditsPage := site.GetPage "credits" }}
+  {{ $icon := resources.Get "AppIcon.png" }}
+
+  <section class="hero section-panel">
+    <div class="hero__copy">
+      <p class="eyebrow">{{ .Params.heroEyebrow }}</p>
+      <h1>{{ .Params.heroTitle }}</h1>
+      <p class="hero__subtitle">{{ .Params.heroSubtitle }}</p>
+      <p>{{ .Params.heroBody }}</p>
+      <div class="hero__about-grid">
+        <div class="markdown-content hero__about">{{ .Content }}</div>
+        <dl class="fact-list fact-list--compact">
+          {{ range $home.press.details }}
+            <div>
+              <dt>{{ .label }}</dt>
+              <dd>{{ .value }}</dd>
+            </div>
+          {{ end }}
+        </dl>
+      </div>
+      <div class="button-row">
+        <a class="app-icon-link" href="{{ site.Params.appStoreURL }}" aria-label="Open Paravida on the App Store">
+          {{ with $icon }}<img src="{{ .RelPermalink }}" alt="Paravida app icon">{{ end }}
+          <span>{{ .Params.primaryButton }}</span>
+        </a>
+        <a class="button button--ghost" href="{{ relURL "research/" }}">{{ .Params.secondaryButton }}</a>
+      </div>
+    </div>
+    <div class="hero__phone" aria-hidden="true">
+      <img src="/samples/sample2.png" alt="">
+    </div>
+  </section>
+
+  <section class="section-panel research" id="research-preview">
+    <p class="eyebrow">Research</p>
+    <h2>{{ $researchPage.Title }}</h2>
+    <p class="lead">{{ $researchPage.Params.intro }}</p>
+    <div class="task-card">
+      <h3>{{ $researchPage.Params.taskTitle }}</h3>
+      <p>{{ $researchPage.Plain | truncate 280 }}</p>
+      <a class="button" href="{{ relURL "research/" }}">Read Study Details</a>
+    </div>
+  </section>
+
+  <section class="section-panel" id="how">
+    <p class="eyebrow">Guide</p>
+    <h2>{{ $home.how.title }}</h2>
+    <div class="steps">
+      {{ range $index, $item := $home.how.items }}
+        <article class="step{{ if modBool $index 2 }} step--reverse{{ end }}">
+          <div class="step__image"><img src="{{ $item.image }}" alt="{{ $item.title }} screenshot"></div>
+          <div class="step__text">
+            <span>{{ printf "%02d" (add $index 1) }}</span>
+            <h3>{{ $item.title }}</h3>
+            <p>{{ $item.text }}</p>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="section-panel privacy" id="privacy-preview">
+    <p class="eyebrow">Apple App Store</p>
+    <h2>{{ $privacyPage.Title }}</h2>
+    <p class="updated">{{ $privacyPage.Params.updated }}</p>
+    <p>{{ $privacyPage.Plain | truncate 260 }}</p>
+    <a class="button button--ghost" href="{{ relURL "privacy/" }}">Read Privacy Policy</a>
+  </section>
+
+  <section class="section-panel split">
+    <div>
+      <p class="eyebrow">Acknowledgements</p>
+      <h2>{{ $creditsPage.Title }}</h2>
+      <div class="markdown-content">{{ $creditsPage.Content }}</div>
+    </div>
+    <div class="task-card">
+      {{ range first 2 $home.credits.items }}
+        <h3>{{ .title }}</h3>
+        <p>{{ .text }}</p>
+      {{ end }}
+      <a class="button button--ghost" href="{{ relURL "credits/" }}">View All Credits</a>
+    </div>
+  </section>
+
+  <section class="section-panel libraries">
+    <p class="eyebrow">Animation Notes</p>
+    <h2>{{ $home.libraries.title }}</h2>
+    <p>{{ $home.libraries.intro }}</p>
+    <div class="library-grid">
+      {{ range $home.libraries.options }}
+        <article>
+          <h3>{{ .name }}</h3>
+          <p>{{ .text }}</p>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

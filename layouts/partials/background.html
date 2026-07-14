@@ -1,0 +1,20 @@
+{{ $backgrounds := site.Data.backgrounds }}
+<div
+  class="background-cycle"
+  aria-hidden="true"
+  data-duration="{{ default 5200 $backgrounds.duration }}"
+  data-fade="{{ default 1800 $backgrounds.fade }}"
+>
+  {{ range $index, $item := $backgrounds.items }}
+    {{ $orbItem := index $backgrounds.items (mod (add $index 2) (len $backgrounds.items)) }}
+    <div
+      class="background-cycle__layer{{ if eq $index 0 }} is-active{{ end }}"
+      data-image="{{ $item.image }}"
+      data-orb="{{ $orbItem.orb }}"
+      style="background-image: {{ $item.gradient | safeCSS }}; transition-duration: {{ default 1800 $backgrounds.fade }}ms;"
+    ></div>
+  {{ end }}
+  <div class="orb-field">
+    {{ range seq 1 7 }}<span class="orb-field__sphere"></span>{{ end }}
+  </div>
+</div>

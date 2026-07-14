@@ -1,0 +1,32 @@
+baseURL = "https://paravida.example/"
+languageCode = "en-us"
+title = "Paravida"
+disableKinds = ["taxonomy", "term", "RSS"]
+
+[params]
+  description = "Press, research participation, privacy, and contact information for Paravida, a casual game design app."
+  appStoreURL = "https://apps.apple.com/app/paravida"
+  contactEmail = "paravida@example.com"
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+  [[module.mounts]]
+    source = "data"
+    target = "data"
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "samples"
+    target = "static/samples"
+  [[module.mounts]]
+    source = "assets/fonts"
+    target = "static/fonts"
+  [[module.mounts]]
+    source = "assets/backgrounds"
+    target = "static/backgrounds"

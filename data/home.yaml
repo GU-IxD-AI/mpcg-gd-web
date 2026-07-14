@@ -1,0 +1,45 @@
+press:
+  details:
+    - label: "Platform"
+      value: "iPhone and iPad"
+    - label: "Status"
+      value: "Preparing for Apple App Store release"
+    - label: "Audience"
+      value: "Players, students, researchers, and curious game makers"
+
+how:
+  title: "How It Works"
+  items:
+    - title: "Play First"
+      image: "/samples/sample1.png"
+      text: "Start from small pre-designed games. The app introduces the controls and gives players a concrete system to inspect before making changes."
+    - title: "Open the Design Pack"
+      image: "/samples/sample2.png"
+      text: "Game rules are exposed as readable visual parameters. Players can adjust values, toggle mechanics, and compare variations without leaving the app."
+    - title: "Reflect and Share"
+      image: "/samples/sample3.png"
+      text: "The study asks participants to describe what they changed, why they changed it, and how the resulting game felt during play-testing."
+
+credits:
+  items:
+    - title: "Graphics"
+      text: "Dolce Vita font by Muraknockout. App imagery and interface visuals are used for Paravida communication and research material."
+    - title: "Audio"
+      text: "Music by Steven Johnson. The app also uses selected sounds from Freesound."
+    - title: "Research"
+      text: "Research was funded until 2018 by the ERA programme under agreement ID: 621403."
+    - title: "Development"
+      text: "Current development reference: https://github.com/GU-IXD-AI/mpc-gd/"
+
+libraries:
+  title: "Background Transition Options"
+  intro: "The page ships with a lightweight vanilla JavaScript crossfade so Hugo stays simple. If you want more advanced blending later, these libraries are good fits:"
+  options:
+    - name: "GSAP"
+      text: "Best for precise timelines, easing, and controlled opacity or filter transitions."
+    - name: "Three.js"
+      text: "Best for shader-based gradient morphing and WebGL texture blending."
+    - name: "PixiJS"
+      text: "Good middle ground for GPU-accelerated sprite and displacement transitions."
+    - name: "anime.js"
+      text: "Small and friendly for DOM-based opacity, scale, and color animations."

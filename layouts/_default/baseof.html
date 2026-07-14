@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+    {{ $css := resources.Get "css/site.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  </head>
+  <body id="top">
+    {{ partial "background.html" . }}
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="{{ relURL "" }}" aria-label="Paravida home">
+          {{ with resources.Get "logo.png" }}
+            <img src="{{ .RelPermalink }}" alt="Paravida logo">
+          {{ else }}
+            <span>PARAVIDA</span>
+          {{ end }}
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="{{ relURL "/#how" }}">How-To</a>
+          <a href="{{ relURL "research/" }}">Research</a>
+          <a href="{{ relURL "privacy/" }}">Privacy</a>
+          <a href="{{ relURL "credits/" }}">Credits</a>
+          <a href="{{ relURL "contact/" }}">Contact</a>
+        </nav>
+      </header>
+      <main>
+        {{ block "main" . }}{{ end }}
+      </main>
+      <a class="back-to-top" href="#top" aria-label="Back to top"><span aria-hidden="true"></span></a>
+      <footer class="site-footer">
+        <p>© {{ now.Year }} Paravida. Built as a simple Hugo site.</p>
+      </footer>
+    </div>
+    {{ $js := resources.Get "js/background-cycle.js" | minify | fingerprint }}
+    <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+  </body>
+</html>

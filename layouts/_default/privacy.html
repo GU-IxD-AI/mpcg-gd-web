@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <section class="section-panel page-hero privacy">
+    <p class="eyebrow">Apple App Store</p>
+    <h1>{{ .Title }}</h1>
+    <p class="updated">{{ .Params.updated }}</p>
+  </section>
+  <section class="section-panel privacy-text markdown-content">
+    {{ .Content }}
+    <a class="button button--ghost" href="{{ relURL "contact/" }}">Privacy Contact</a>
+  </section>
+{{ end }}

@@ -10,15 +10,21 @@ press:
 how:
   title: "How It Works"
   items:
-    - title: "Play First"
+    - title: "Onboarding"
       image: "samples/sample1.png"
-      text: "Start from small pre-designed games. The app introduces the controls and gives players a concrete system to inspect before making changes."
-    - title: "Open the Design Pack"
-      image: "samples/sample2.png"
-      text: "Game rules are exposed as readable visual parameters. Players can adjust values, toggle mechanics, and compare variations without leaving the app."
+      text: "When you arrive in the app, after a brief introduction to the **Pause** feature (2-finger  vertical swipe), you get to the gamepack screen. You can always pause the app when in game mode by doing a 2-finger swipe down the screen. This will take you out of an active game back to the design interface."
+    - title: "Controls"
+      image: "samples/pack-screen.png"
+      text: "In study mode, you only have the study pack available that shows you the *four* selected starting points you can play and alter. **Tap** on one to get to the game, for example __Keepy  Uppy__."
+    - title: "Design Interface"
+      image: "samples/sample2-design.png"
+      text: "Either when Pausing a game or when picking a game from a game pack, you will end up at the design interface for the game. Game rules are exposed as readable visual parameters. Players can adjust values, toggle mechanics, and compare variations without leaving the app. Game rules are split into a 3x3 grid. If you tap on **STUDY PACK** you will go back and see all games within a game pack and leave the design screen."
+    - title: "In Game"
+      image: "samples/sample2-ingame.png"
+      text: "During a game you will see the score, the remaining lives and the time at the top edge of the screen. When pausing with the 2+finger swipe the design interface will come back. If no change is made the game will continue but if there is a change, the game will restart."
     - title: "Reflect and Share"
-      image: "samples/sample3.png"
-      text: "The study asks participants to describe what they changed, why they changed it, and how the resulting game felt during play-testing."
+      image: "samples/sample2-rating.png"
+      text: "The study asks participants to share how they rank certain aspects of the game they played, which could be either a game they designed or changed or already existing. This is crucial for the research to understand the design space."
 
 credits:
   items:
@@ -30,16 +36,3 @@ credits:
       text: "Research was funded until 2018 by the ERA programme under agreement ID: 621403."
     - title: "Development"
       text: "Current development reference: https://github.com/GU-IXD-AI/mpc-gd/"
-
-libraries:
-  title: "Background Transition Options"
-  intro: "The page ships with a lightweight vanilla JavaScript crossfade so Hugo stays simple. If you want more advanced blending later, these libraries are good fits:"
-  options:
-    - name: "GSAP"
-      text: "Best for precise timelines, easing, and controlled opacity or filter transitions."
-    - name: "Three.js"
-      text: "Best for shader-based gradient morphing and WebGL texture blending."
-    - name: "PixiJS"
-      text: "Good middle ground for GPU-accelerated sprite and displacement transitions."
-    - name: "anime.js"
-      text: "Small and friendly for DOM-based opacity, scale, and color animations."

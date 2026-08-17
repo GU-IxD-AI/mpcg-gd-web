@@ -1,5 +1,6 @@
 emailLabel: "Email"
-email: "paravida@example.com"
+email: "study@interactions.se"
+emailSubject: "Paravida General Enquiry"
 sections:
   - title: "Media"
     text: "Request app information, images, credits, or interviews about the project."

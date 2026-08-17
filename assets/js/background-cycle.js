@@ -56,3 +56,11 @@
     orbColor = layers[index].dataset.orb || orbColor;
   }, duration);
 })();
+
+(() => {
+  document.querySelectorAll(".email-link[data-local][data-domain]").forEach((link) => {
+    const address = `${link.dataset.local}@${link.dataset.domain}`;
+    const subject = link.dataset.subject ? `?subject=${encodeURIComponent(link.dataset.subject)}` : "";
+    link.href = `mailto:${address}${subject}`;
+  });
+})();

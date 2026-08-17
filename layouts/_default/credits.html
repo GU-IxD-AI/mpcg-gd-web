@@ -9,7 +9,7 @@
     {{ range $home.credits.items }}
       <article class="section-panel contact-card">
         <h2>{{ .title }}</h2>
-        <p>{{ .text }}</p>
+        <div class="markdown-content">{{ .text | markdownify }}</div>
       </article>
     {{ end }}
   </section>

@@ -97,10 +97,33 @@ p {
   margin-bottom: 0.6rem;
 }
 
+.markdown-content strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.markdown-content em {
+  color: var(--blue-dark);
+  font-style: italic;
+}
+
+.markdown-content strong em,
+.markdown-content em strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
 .lead-content p {
   color: var(--ink);
   font-size: clamp(1.18rem, 2.4vw, 1.75rem);
   line-height: 1.45;
+}
+
+.lead.markdown-content p,
+.hero__subtitle.markdown-content p {
+  color: var(--ink);
+  font-size: inherit;
+  line-height: inherit;
 }
 
 h1,
@@ -511,6 +534,21 @@ h3 {
 
 .privacy-text {
   max-width: 900px;
+}
+
+.privacy-block,
+.privacy-contact-card {
+  max-width: 920px;
+}
+
+.privacy-block h2,
+.privacy-contact-card h2 {
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 4.2vw, 3.5rem);
+}
+
+.privacy-block ul {
+  padding-left: 1.4rem;
 }
 
 .contact-grid {

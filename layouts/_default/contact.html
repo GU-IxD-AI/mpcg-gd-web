@@ -1,16 +1,20 @@
 {{ define "main" }}
   {{ $contact := site.Data.contact }}
+  {{ $emailParts := split $contact.email "@" }}
+  {{ $emailLocal := index $emailParts 0 }}
+  {{ $emailDomain := index $emailParts 1 }}
+  {{ $emailSubject := $contact.emailSubject }}
   <section class="section-panel page-hero">
     <p class="eyebrow">Contact</p>
     <h1>{{ .Title }}</h1>
     <div class="markdown-content lead-content">{{ .Content }}</div>
-    <a class="button" href="mailto:{{ $contact.email }}">{{ $contact.emailLabel }}: {{ $contact.email }}</a>
+    <a class="button email-link" href="{{ relURL "contact/" }}" data-local="{{ $emailLocal }}" data-domain="{{ $emailDomain }}" data-subject="{{ $emailSubject }}">{{ $contact.emailLabel }} the team</a>
   </section>
   <section class="contact-grid">
     {{ range $contact.sections }}
       <article class="section-panel contact-card">
         <h2>{{ .title }}</h2>
-        <p>{{ .text }}</p>
+        <div class="markdown-content">{{ .text | markdownify }}</div>
       </article>
     {{ end }}
   </section>

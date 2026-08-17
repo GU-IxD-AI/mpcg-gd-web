@@ -1,18 +1,21 @@
 {{ define "main" }}
+  {{ $emailParts := split .Params.email "@" }}
+  {{ $emailLocal := index $emailParts 0 }}
+  {{ $emailDomain := index $emailParts 1 }}
   <section class="section-panel page-hero research">
     <p class="eyebrow">Research</p>
     <h1>{{ .Title }}</h1>
-    <p class="lead">{{ .Params.intro }}</p>
+    <div class="lead markdown-content">{{ .Params.intro | markdownify }}</div>
   </section>
   <section class="section-panel split">
     <div>
       <h2>{{ .Params.taskTitle }}</h2>
       <div class="markdown-content">{{ .Content }}</div>
-      <a class="button" href="{{ relURL "contact/" }}">{{ .Params.button }}</a>
+      <a class="button email-link" href="{{ relURL "contact/" }}" data-local="{{ $emailLocal }}" data-domain="{{ $emailDomain }}" data-subject="{{ .Params.emailSubject }}">{{ .Params.button }}</a>
     </div>
     <div class="task-card">
       <h3>Questions?</h3>
-      <p>Contact the Paravida team if you want to ask about eligibility, consent, timing, or the device requirements before registering interest.</p>
+      <div class="markdown-content">{{ "Contact the Paravida team if you want to ask about eligibility, consent, timing, or the device requirements when registering interest." | markdownify }}</div>
     </div>
   </section>
 {{ end }}

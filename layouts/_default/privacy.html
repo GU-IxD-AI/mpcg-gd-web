@@ -2,10 +2,23 @@
   <section class="section-panel page-hero privacy">
     <p class="eyebrow">Apple App Store</p>
     <h1>{{ .Title }}</h1>
-    <p class="updated">{{ .Params.updated }}</p>
+    <p class="updated">{{ .Params.updated | markdownify }}</p>
   </section>
-  <section class="section-panel privacy-text markdown-content">
-    {{ .Content }}
-    <a class="button button--ghost" href="{{ relURL "contact/" }}">Privacy Contact</a>
+  {{ $parts := split .Content "<h2" }}
+  {{ range $index, $part := $parts }}
+    {{ if ne (trim $part " \n\r\t") "" }}
+      <section class="section-panel privacy-text privacy-block markdown-content">
+        {{ if eq $index 0 }}
+          {{ $part | safeHTML }}
+        {{ else }}
+          {{ printf "<h2%s" $part | safeHTML }}
+        {{ end }}
+      </section>
+    {{ end }}
+  {{ end }}
+  <section class="section-panel privacy-contact-card">
+    <h2>Privacy Contact</h2>
+    <p>For questions about privacy, study data, or removal requests, contact the Paravida team.</p>
+    <a class="button button--ghost" href="{{ relURL "contact/" }}">Contact</a>
   </section>
 {{ end }}

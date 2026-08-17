@@ -9,8 +9,8 @@
     <div class="hero__copy">
       <p class="eyebrow">{{ .Params.heroEyebrow }}</p>
       <h1>{{ .Params.heroTitle }}</h1>
-      <p class="hero__subtitle">{{ .Params.heroSubtitle }}</p>
-      <p>{{ .Params.heroBody }}</p>
+      <div class="hero__subtitle markdown-content">{{ .Params.heroSubtitle | markdownify }}</div>
+      <div class="markdown-content">{{ .Params.heroBody | markdownify }}</div>
       <div class="hero__about-grid">
         <div class="markdown-content hero__about">{{ .Content }}</div>
         <dl class="fact-list fact-list--compact">
@@ -27,7 +27,7 @@
           {{ with $icon }}<img src="{{ .RelPermalink }}" alt="Paravida app icon">{{ end }}
           <span>{{ .Params.primaryButton }}</span>
         </a>
-        <a class="button button--ghost" href="{{ relURL "research/" }}">{{ .Params.secondaryButton }}</a>
+        <a class="app-icon-link" href="{{ relURL "research/" }}">{{ .Params.secondaryButton }}</a>
       </div>
     </div>
     <div class="hero__phone" aria-hidden="true">
@@ -38,7 +38,7 @@
   <section class="section-panel research" id="research-preview">
     <p class="eyebrow">Research</p>
     <h2>{{ $researchPage.Title }}</h2>
-    <p class="lead">{{ $researchPage.Params.intro }}</p>
+    <div class="lead markdown-content">{{ $researchPage.Params.intro | markdownify }}</div>
     <div class="task-card">
       <h3>{{ $researchPage.Params.taskTitle }}</h3>
       <p>{{ $researchPage.Plain | truncate 280 }}</p>
@@ -56,7 +56,7 @@
           <div class="step__text">
             <span>{{ printf "%02d" (add $index 1) }}</span>
             <h3>{{ $item.title }}</h3>
-            <p>{{ $item.text }}</p>
+      <div class="markdown-content">{{ $item.text | markdownify }}</div>
           </div>
         </article>
       {{ end }}
@@ -66,7 +66,7 @@
   <section class="section-panel privacy" id="privacy-preview">
     <p class="eyebrow">Apple App Store</p>
     <h2>{{ $privacyPage.Title }}</h2>
-    <p class="updated">{{ $privacyPage.Params.updated }}</p>
+    <p class="updated">{{ $privacyPage.Params.updated | markdownify }}</p>
     <p>{{ $privacyPage.Plain | truncate 260 }}</p>
     <a class="button button--ghost" href="{{ relURL "privacy/" }}">Read Privacy Policy</a>
   </section>
@@ -86,17 +86,17 @@
     </div>
   </section>
 
-  <section class="section-panel libraries">
+<!--   <section class="section-panel libraries">
     <p class="eyebrow">Animation Notes</p>
     <h2>{{ $home.libraries.title }}</h2>
-    <p>{{ $home.libraries.intro }}</p>
+      <div class="markdown-content">{{ $home.libraries.intro | markdownify }}</div>
     <div class="library-grid">
       {{ range $home.libraries.options }}
         <article>
           <h3>{{ .name }}</h3>
-          <p>{{ .text }}</p>
+          <div class="markdown-content">{{ .text | markdownify }}</div>
         </article>
       {{ end }}
     </div>
-  </section>
+  </section> -->
 {{ end }}
